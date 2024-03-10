@@ -35,6 +35,11 @@ services:
     # volumes:
     #   - ./api:/app      
     #   - ./app/node_modules
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

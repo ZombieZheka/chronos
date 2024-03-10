@@ -1,13 +1,24 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+// server/app.js
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var app = express();
+const dbConnection = require("./database/db");
+
+// dotenv setup
+const dotenv = require("dotenv");
+dotenv.config();
+const root = path.resolve(__dirname);
+process.env.MIDDLEWARES = path.join(root, "middlewares/index.middleware");
+process.env.CONTROLLERS = path.join(root, "controllers/index.controller");
+
+const app = express();
+
+// Database
+dbConnection();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,8 +30,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// routes setup
+const indexRouter = require('./routes/index.router');
+app.use('/api', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -35,7 +47,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('pages/error');
 });
 
 module.exports = app;
