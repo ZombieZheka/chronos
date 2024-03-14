@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+PRODID:-//Events Calendar//iCal4j 1.0//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTAMP:20240216T101314Z
+DTSTART:20240216T143000Z
+DTEND:20240216T154500Z
+SUMMARY:Invitation to MS Teams Interview from Sigma Software @ Feb 16\, 2
+ 024\, 4:30:00 PM - 5:45:00 PM (GMT+2)
+UID:092256b4-dbcc-4bfc-a116-522875bbe112
+LOCATION:https://teams.microsoft.com/l/meetup-join/19%3ameeting_MzZmYmQyY
+ jctMDNjNy00MWE0LTg4YjYtZDc0YmU0Mjg3MGUz%40thread.v2/0?context=%7b%22Tid%
+ 22%3a%220211062a-698e-4dbb-b246-313b3e0eec53%22%2c%22Oid%22%3a%227364810
+ b-ec36-4787-9e95-377d8a3cbe77%22%7d
+ORGANIZER;ROLE=NON-PARTICIPANT;CN=Volodymyr Yantsov:mailto:ee4ac1ba-1eaa-
+ 4af0-b038-f6db5233c849@eu.calendar.smartrecruiters.com
+ATTENDEE;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;ROLE=REQ-PARTICIPANT;CN=Kovalov 
+ Yevhen:mailto:kovalov.yevhen.07@gmail.com
+SEQUENCE:0
+CLASS:PUBLIC
+DESCRIPTION:Scheduled interview between Sigma Software and Kovalov Yevhen
+ \, candidate for [003] GameDev Internship\n\n4:30 PM - 5:45 PM (Europe/K
+ iev) Hlib Savenko\, Hanna Voloshynova\, Volodymyr Yantsov\n\n\n\n
+END:VEVENT
+END:VCALENDAR

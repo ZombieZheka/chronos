@@ -6,29 +6,28 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const dotenv = require("dotenv");
+
 const dbConnection = require("./database/db");
 
 // dotenv setup
-const dotenv = require("dotenv");
 dotenv.config();
+// dotenv.config({ debug: true });
 const root = path.resolve(__dirname);
 process.env.MIDDLEWARES = path.join(root, "middlewares/index.middleware");
 process.env.CONTROLLERS = path.join(root, "controllers/index.controller");
+process.env.SERVICES = path.join(root, "services/index");
 
 const app = express();
-
-// Database
-dbConnection();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// database setup
+dbConnection();
 
 // routes setup
 const indexRouter = require('./routes/index.router');
@@ -47,7 +46,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('pages/error');
+  // res.render('pages/error');
+  res.json({
+    type: 'error',
+    message: 'Page not found'
+  });
 });
 
 module.exports = app;
