@@ -17,6 +17,7 @@ const root = path.resolve(__dirname);
 process.env.MIDDLEWARES = path.join(root, "middlewares/index.middleware");
 process.env.CONTROLLERS = path.join(root, "controllers/index.controller");
 process.env.SERVICES = path.join(root, "services/index");
+process.env.MODELS = path.join(root, "models/index");
 
 const app = express();
 
@@ -46,11 +47,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  // res.render('pages/error');
-  res.json({
-    type: 'error',
-    message: 'Page not found'
-  });
+  res.json(err);
+  // res.json({
+  //   type: 'error',
+  //   message: 'Page not found'
+  // });
 });
 
 module.exports = app;

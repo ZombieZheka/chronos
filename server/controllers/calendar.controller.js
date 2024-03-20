@@ -22,7 +22,7 @@ module.exports = {
     getCalendars: (req, res, next) => {
         res.send('getCalendars: NOT IMPLEMENTED');
     },
-    // delete calendars
+    // delete calendars (maybe don't needed it)
     deleteCalendars: (req, res, next) => {
         res.send('deleteCalendars: NOT IMPLEMENTED');
     }

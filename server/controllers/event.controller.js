@@ -22,7 +22,7 @@ module.exports = {
     getEvents: (req, res, next) => {
         res.send('getEvents: NOT IMPLEMENTED');
     },
-    // delete events
+    // delete events (maybe don't needed it)
     deleteEvents: (req, res, next) => {
         res.send('deleteEvents: NOT IMPLEMENTED');
     }
