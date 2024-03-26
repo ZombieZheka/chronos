@@ -17,7 +17,7 @@ RUN npm set progress=false \
 RUN npm ci
 
 # Get all the code needed to run the app
-# COPY . /usr/src/app
+COPY . /usr/src/app
 
 # Expose the port the app runs in
 EXPOSE 4000
